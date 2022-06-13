@@ -28,6 +28,34 @@ $movies = [];
 
 $movies[] = new Movie("Il Miglio Verde", "The Green Mile", "drama", "english" , 8.5);
 $movies[] = new Movie("Django Unchained", "Django Unchained", "western", "english", 9);
-
-var_dump($movies);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div>
+        <ul>
+            <?php foreach ($movies as $movie) { ?>
+                <li>
+                    <?php foreach ($movie as $key => $value) { ?>
+                        <div class="<?php echo $key ?>">
+                            <small><?php echo $key ?>:</small>
+                            <span><?php echo $value ?></span>
+                        </div>
+                    <?php } ?>
+                </li>
+            <?php } ?>
+        </ul>
+    </div>
+
+</body>
+</html>
