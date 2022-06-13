@@ -1,5 +1,6 @@
-<?php 
-class Movie {
+<?php
+class Movie
+{
     public $title;
     public $original_title;
     public $genre;
@@ -7,7 +8,7 @@ class Movie {
     public $vote;
     public $vote_stars;
 
-    function __construct($_title,$_original_title,$_genre,$_original_langauge,$_vote)
+    function __construct($_title, $_original_title, $_genre, $_original_langauge, $_vote)
     {
         $this->title = $_title;
         $this->original_title = $_original_title;
@@ -26,12 +27,13 @@ class Movie {
 
 $movies = [];
 
-$movies[] = new Movie("Il Miglio Verde", "The Green Mile", "drama", "english" , 8.5);
-$movies[] = new Movie("Django Unchained", "Django Unchained", "western", "english", 9);
+$movies[] = new Movie("Il Miglio Verde", "The Green Mile", "Drama", "en", 8.5);
+$movies[] = new Movie("Django Unchained", "Django Unchained", "Western", "en", 9);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,15 +42,21 @@ $movies[] = new Movie("Django Unchained", "Django Unchained", "western", "englis
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    
+
     <div>
         <ul>
             <?php foreach ($movies as $movie) { ?>
                 <li>
                     <?php foreach ($movie as $key => $value) { ?>
                         <div class="<?php echo $key ?>">
-                            <small><?php echo $key ?>:</small>
+                            <small>
+                                <?php if (strpos($key, "_") !== false) {
+                                    $key = str_replace("_", " ", $key);
+                                }
+                                echo ucfirst($key); ?>:
+                            </small>
                             <span><?php echo $value ?></span>
                         </div>
                     <?php } ?>
@@ -58,4 +66,5 @@ $movies[] = new Movie("Django Unchained", "Django Unchained", "western", "englis
     </div>
 
 </body>
+
 </html>
